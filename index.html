@@ -333,6 +333,19 @@ footer{letter-spacing:.2em;text-transform:uppercase;font-size:10px}
 /* Apparition plus douce */
 .rev{transform:translateY(32px);transition:opacity 1.1s cubic-bezier(.2,.7,.2,1),transform 1.1s cubic-bezier(.2,.7,.2,1)}
 @media (prefers-reduced-motion:reduce){.rev{transform:none;transition:none}}
+/* Fleches discretes : simple indication, pas des boutons */
+.flow li:not(:last-child)::after,.fba-arrow,.ba-arrow{color:var(--muted);opacity:.7;pointer-events:none;user-select:none;cursor:default}
+.flow li:not(:last-child)::after{font-size:12px}
+.fba-arrow,.ba-arrow{font-size:1.4rem}
+/* Fleches vers le bas sur mobile */
+@media (max-width:640px){
+  .flow{flex-direction:column;align-items:flex-start;gap:28px}
+  .flow li{margin-right:0}
+  .flow li:not(:last-child)::after{content:"↓";right:auto;left:24px;top:auto;bottom:-25px;transform:none;line-height:1}
+  .fba{flex-direction:column;align-items:stretch}
+  .fba figure{flex:none;max-width:none;width:100%}
+  .fba .fba-arrow{align-self:center;line-height:1;transform:rotate(90deg)}
+}
 /* Corrections mobile */
 @media (max-width:640px){
   nav{gap:10px}
